@@ -35,17 +35,47 @@ form.addEventListener('submit', function(event){
         slider: slider.value
     };
     // console.log(applicant);
-
-    let applicants = [];
-    const jsonString = window.localStorage.getItem('applicants');
-
+    //define empty array for applicant object
+    const allApplicants = [];
+    //const json string to set up looking for array
+    const jsonString = window.localStorage.getItem(allApplicants);
+    //if statement to parse json string
     if(jsonString) {
-        applicants = JSON.parse(jsonString);
+        jsonString = JSON.parse(jsonString);
     }
-
-    applicants.push(applicant);
-    const serialize = JSON.stringify(applicants);
-    window.localStorage.setItem('applicants', serialize);
+    //push statement to append applicant into empty array
+    allApplicants.push(applicant);
+    //const serialize stringify
+    const serialize = JSON.stringify(allApplicants);
+    // set item in local storage
+    window.localStorage.setItem('allApplicants', serialize);
+    //window.location
     window.location = 'hello.html';
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let applicants = [];
+// const jsonString = window.localStorage.getItem('applicants');
+
+// if(jsonString) {
+//     applicants = JSON.parse(jsonString);
+// }
+
+// applicants.push(applicant);
+// const serialize = JSON.stringify(applicants);
+// window.localStorage.setItem('applicants', serialize);
+// window.location = 'hello.html';

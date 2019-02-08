@@ -1,28 +1,23 @@
-const json = window.localStorage.getItem('applicants');
+const json = window.localStorage.getItem('Allapplicants');
 // double check that this isn't applicant
 let allApplicants = [];
 
 let applicant = null;
 
+//if json statement to parse into empty array 
 if(json) {
     allApplicants = JSON.parse(json);
 } else {
     window.location = '/';
 }
-
-const searchParams = new URLSearchParams(window.location.search);
-const nameToFind = searchParams.get('name');
-console.log(nameToFind);
-
+//set search params to window.location.search
+const searchParam = new URLSearchParams(window.location.search);
+const nameToFind = searchParam.get('name');
+//for loop to access array of local storgage
 for(let i = 0; i < allApplicants.length; i++) {
-    const currentApplicant = allApplicants[i];
-
-    if(currentApplicant.name === nameToFind) {
-        applicant = currentApplicant;
-    }
-} 
-
-
+    const singleApplicant = allApplicants[i];
+}
+//if statement to match search params of name with array of data
 
 const name = document.getElementById('name');
 const city = document.getElementById('city');
@@ -40,6 +35,14 @@ state.textContent = applicant.state;
 pranks.textContent = applicant.prank;
 weapon.textContent = applicant.weapon.join(', ');
 slider.textContent = applicant.slider;
+
+
+
+
+
+
+
+
 
 
 
